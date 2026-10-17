@@ -1,6 +1,6 @@
 {
   "name": "@axisvela/mnemovela-client",
-  "version": "0.1.0",
+  "version": "3.0.0",
   "description": "Thin TypeScript client for the Mnemovela cognition runtime (JSON-RPC over HTTP)",
   "type": "module",
   "main": "dist/index.js",
