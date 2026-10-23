@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://mnemovela.axisrobo/contracts/mnemovela.extraction.v1.schema.json",
+  "$id": "https://mnemovela.axisvela/contracts/mnemovela.extraction.v1.schema.json",
   "title": "Mnemovela Extraction Contract v1",
   "description": "Language-neutral schema for the episode extraction pipeline: the candidate union returned by an ExtractionProvider, the extract_episode request/response, and the deterministic offline extractor's structured-episode input convention. Both the Python and Go runtimes implement these semantics; the contract compares semantic outcomes, not generated ids.",
   "$defs": {

@@ -45,11 +45,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "python" / "src"))
 
-from axisrobo.mnemovela.backends import SQLiteBackend
-from axisrobo.mnemovela.backends.sqlite import SQLiteLexicalIndex, SQLiteRelationIndex, SQLiteSemanticIndex
-from axisrobo.mnemovela.capture_router import CaptureRouter
-from axisrobo.mnemovela.contracts.storage import AccessContext
-from axisrobo.mnemovela.engine import LocalMemoryEngine
+from axisvela.mnemovela.backends import SQLiteBackend
+from axisvela.mnemovela.backends.sqlite import SQLiteLexicalIndex, SQLiteRelationIndex, SQLiteSemanticIndex
+from axisvela.mnemovela.capture_router import CaptureRouter
+from axisvela.mnemovela.contracts.storage import AccessContext
+from axisvela.mnemovela.engine import LocalMemoryEngine
 
 TENANT = "acme"
 PROJECT = "go-verification"

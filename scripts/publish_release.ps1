@@ -76,7 +76,7 @@ if (Test-Path $releaseDoc) {
 
 $token = gh auth token
 $headers = @{ Authorization = "Bearer $token"; Accept = "application/vnd.github+json" }
-$uri = "https://api.github.com/repos/axisrobo/mnemovela-open/releases"
+$uri = "https://api.github.com/repos/axisvela/mnemovela-open/releases"
 
 # Delete an existing release for this tag, if any, so re-runs are idempotent.
 try {

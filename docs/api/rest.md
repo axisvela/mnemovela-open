@@ -14,7 +14,7 @@ The REST server is fail-closed without an authorizer. `MNEMOVELA_ALLOW_INSECURE=
 enables insecure-dev mode for local development; enterprise deployments must provide
 an authorizer instead.
 
-All endpoints are mounted under the base path `/api/v1`. The REST API is a Python application shell over the engine: it routes HTTP requests to the OSS `axisrobo.mnemovela` Python library.
+All endpoints are mounted under the base path `/api/v1`. The REST API is a Python application shell over the engine: it routes HTTP requests to the OSS `axisvela.mnemovela` Python library.
 
 ## Endpoint reference
 
