@@ -47,7 +47,7 @@ Contracts tagged `v1` are frozen; `v1-draft` contracts are still evolving.
 
 Mnemovela is open core. Every surface above ships in the **open-source core**
 (AGPL-3.0), but some operations depend on implementations provided by the
-proprietary **Enterprise Edition** (`axisrobo-mnemovela-ee`), which registers into
+proprietary **Enterprise Edition** (`axisvela-mnemovela-ee`), which registers into
 the same APIs at startup:
 
 | Capability reachable through the APIs | OSS core | Enterprise Edition |

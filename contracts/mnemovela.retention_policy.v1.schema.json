@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://axisrobo.github.io/Mnemovela/mnemovela.retention_policy.v1.schema.json",
+  "$id": "https://axisvela.github.io/Mnemovela/mnemovela.retention_policy.v1.schema.json",
   "title": "Mnemovela Retention Policy v1",
   "type": "object",
   "required": ["version", "default_policy"],

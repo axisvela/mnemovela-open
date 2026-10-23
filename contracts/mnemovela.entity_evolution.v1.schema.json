@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://axisrobo.github.io/Mnemovela/mnemovela.entity_evolution.v1.schema.json",
+  "$id": "https://axisvela.github.io/Mnemovela/mnemovela.entity_evolution.v1.schema.json",
   "title": "Mnemovela Entity Evolution v1",
   "type": "object",
   "properties": {

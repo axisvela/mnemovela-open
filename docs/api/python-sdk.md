@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `axisrobo.mnemovela` package is the in-process Python SDK for the Mnemovela memory architecture. It provides local embedded storage (SQLite or in-memory), typed memory commits, hybrid retrieval, entity management, media ingestion, and maintenance orchestration.
+The `axisvela.mnemovela` package is the in-process Python SDK for the Mnemovela memory architecture. It provides local embedded storage (SQLite or in-memory), typed memory commits, hybrid retrieval, entity management, media ingestion, and maintenance orchestration.
 
 **Install** (editable from source):
 ```bash
@@ -12,11 +12,11 @@ pip install -e .
 **Stable import surfaces:**
 
 ```python
-from axisrobo.mnemovela import (...)       # top-level aggregated public API
-from axisrobo.mnemovela.api import (...)   # direct service/factory entry points
+from axisvela.mnemovela import (...)       # top-level aggregated public API
+from axisvela.mnemovela.api import (...)   # direct service/factory entry points
 ```
 
-Packages such as `_internal/`, `querying/`, `indexing/`, and `management/` are implementation layout and **not** part of the stable consumer API. Backend and index implementors should use `axisrobo.mnemovela.contracts`.
+Packages such as `_internal/`, `querying/`, `indexing/`, and `management/` are implementation layout and **not** part of the stable consumer API. Backend and index implementors should use `axisvela.mnemovela.contracts`.
 
 ---
 
@@ -25,7 +25,7 @@ Packages such as `_internal/`, `querying/`, `indexing/`, and `management/` are i
 ### In-memory (ephemeral)
 
 ```python
-from axisrobo.mnemovela import LocalMemoryService, SQLiteServiceConfig
+from axisvela.mnemovela import LocalMemoryService, SQLiteServiceConfig
 
 config = SQLiteServiceConfig(database_path=":memory:", persistent_indexes=False)
 with LocalMemoryService.from_sqlite(config) as memory:
@@ -48,7 +48,7 @@ with LocalMemoryService.from_sqlite(config) as memory:
 ### File-backed SQLite
 
 ```python
-from axisrobo.mnemovela import LocalMemoryService, SQLiteServiceConfig
+from axisvela.mnemovela import LocalMemoryService, SQLiteServiceConfig
 
 config = SQLiteServiceConfig(database_path="./agentic-memory.db", persistent_indexes=True)
 with LocalMemoryService.from_sqlite(config) as memory:
@@ -81,7 +81,7 @@ with LocalMemoryService.from_sqlite("./data.db") as memory:
 A frozen dataclass for backend-agnostic construction. The backend name is resolved against the registered store factories.
 
 ```python
-from axisrobo.mnemovela import MemoryServiceConfig, create_memory_engine
+from axisvela.mnemovela import MemoryServiceConfig, create_memory_engine
 
 engine = create_memory_engine(
     MemoryServiceConfig(
@@ -105,8 +105,8 @@ Fields:
 A frozen dataclass for direct SQLite construction — the simplest path:
 
 ```python
-from axisrobo.mnemovela import SQLiteServiceConfig, create_sqlite_engine
-from axisrobo.mnemovela.backends.sqlite import SQLiteBackendConfig, create_sqlite_engine  # same objects
+from axisvela.mnemovela import SQLiteServiceConfig, create_sqlite_engine
+from axisvela.mnemovela.backends.sqlite import SQLiteBackendConfig, create_sqlite_engine  # same objects
 
 engine = create_sqlite_engine("./agentic-memory.db", persistent_indexes=True)
 ```
@@ -143,7 +143,7 @@ The OSS distribution ships two backends:
 | `"memory"` | In-memory storage (ephemeral). |
 | `"sqlite"` | SQLite file-backed storage with optional persistent indexes. |
 
-Server backends (e.g. `"postgres"`) are provided by the Enterprise Edition (`axisrobo-mnemovela-ee`). The registry auto-discovers backends at import time so `"postgres"` becomes available without code changes once the EE package is installed.
+Server backends (e.g. `"postgres"`) are provided by the Enterprise Edition (`axisvela-mnemovela-ee`). The registry auto-discovers backends at import time so `"postgres"` becomes available without code changes once the EE package is installed.
 
 ---
 
@@ -281,7 +281,7 @@ memory.commit_<type>(
 All frames accept either a typed dataclass instance or a plain `Mapping[str, Any]` that the engine normalizes internally.
 
 ```python
-from axisrobo.mnemovela import BeliefFrame, SubjectScope
+from axisvela.mnemovela import BeliefFrame, SubjectScope
 
 memory.commit_belief(
     branch_name="main",
@@ -714,20 +714,20 @@ memory.sync_connector(
 ) -> dict[str, Any]
 ```
 
-**Important:** Cloud connectors (GitHub, GDrive, OneDrive, Tencent, S3, Azure) ship in the Enterprise Edition (`axisrobo-mnemovela-ee`). In the OSS core alone, `sync_connector` raises `ValueError("Unknown connector: ...")` with a hint to install the EE package. The connector registry auto-discovers connectors at import time when the EE package is present.
+**Important:** Cloud connectors (GitHub, GDrive, OneDrive, Tencent, S3, Azure) ship in the Enterprise Edition (`axisvela-mnemovela-ee`). In the OSS core alone, `sync_connector` raises `ValueError("Unknown connector: ...")` with a hint to install the EE package. The connector registry auto-discovers connectors at import time when the EE package is present.
 
 ---
 
 ## Editions note
 
-**OSS Core** (`axisrobo.mnemovela`):
+**OSS Core** (`axisvela.mnemovela`):
 
 - Embedded backends: `memory` (in-memory), `sqlite` (file-backed with persistent indexes)
 - Baseline retrieval: structured filtering, lexical (BM25/term), relation traversal, cosine semantic on local indexes
 - Rule-based and offline extraction: `extract_episode` with built-in providers, file ingestion
 - Entity resolution: exact-match (ID, canonical name, alias, normalized text)
 
-**Enterprise Edition** (`axisrobo-mnemovela-ee`):
+**Enterprise Edition** (`axisvela-mnemovela-ee`):
 
 - Additional backends: `postgres` with PGVector
 - LLM-powered extraction: OpenAI client for episode-to-fact/frame materialization

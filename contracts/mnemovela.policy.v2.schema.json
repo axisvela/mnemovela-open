@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://axisrobo.github.io/Mnemovela/mnemovela.policy.v2.schema.json",
+  "$id": "https://axisvela.github.io/Mnemovela/mnemovela.policy.v2.schema.json",
   "title": "Mnemovela Policy V2",
   "type": "object",
   "properties": {
